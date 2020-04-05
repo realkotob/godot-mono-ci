@@ -26,8 +26,8 @@ RUN mkdir ~/.cache \
     && mv templates/* ~/.local/share/godot/templates/${GODOT_VERSION}.stable.mono \
     && rm -f Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64.zip
 
-# ADD getbutler.sh /opt/butler/getbutler.sh
-# RUN bash /opt/butler/getbutler.sh
-# RUN /opt/butler/bin/butler -V
+ADD getbutler.sh /opt/butler/getbutler.sh
+RUN bash /opt/butler/getbutler.sh
+RUN /opt/butler/bin/butler -V
 
 ENV PATH="/opt/butler/bin:${PATH}"
