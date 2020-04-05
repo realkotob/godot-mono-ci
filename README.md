@@ -4,7 +4,7 @@ Docker image to export Godot Engine games and deploy to GitLab/GitHub Pages and 
 <img src="https://i.imgur.com/nwZHG4f.png" width=450>
 
 ## Docker Hub
-https://hub.docker.com/r/barichello/godot-ci/
+https://hub.docker.com/r/asheraryam/godot-mono-ci/
 
 ## How To Use
 
@@ -26,11 +26,11 @@ Delete the `pages` job and set the following **Variables** in the GitLab CI/CD p
 
 *Access `https://gitlab.com/<username>/<repo-name>/settings/ci_cd` to edit:*
 
-|Variable|Description|Example|
-|-|-|-|
-| $REMOTE_URL | The `git remote` where the web export will be hosted (in this case GitHub), it should contain your [deploy/personal access token](https://github.com/settings/tokens)|`https://<github username>:<deploy token>@github.com/<username>/<repository>.git`
-| $GIT_EMAIL | Git email of the account that will commit to the `gh-pages` branch. | `artur@barichello.me`
-| $GIT_USERNAME | Username of the account that will commit to the `gh-pages` branch. | `abarichello`
+| Variable      | Description                                                                                                                                                           | Example                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| $REMOTE_URL   | The `git remote` where the web export will be hosted (in this case GitHub), it should contain your [deploy/personal access token](https://github.com/settings/tokens) | `https://<github username>:<deploy token>@github.com/<username>/<repository>.git` |
+| $GIT_EMAIL    | Git email of the account that will commit to the `gh-pages` branch.                                                                                                   | `artur@barichello.me`                                                             |
+| $GIT_USERNAME | Username of the account that will commit to the `gh-pages` branch.                                                                                                    | `abarichello`                                                                     |
 
 Others variables are set automatically by the `gitlab-runner`, see the documentation for [predefined variables](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html).<br>
 
@@ -39,8 +39,8 @@ Others variables are set automatically by the `gitlab-runner`, see the documenta
 Deployment to Itch.io is done via [Butler](https://itch.io/docs/butler/).
 You will need to set variables in the Gitlab CI/CD settings panel for it to work.
 
-|Variable|Description|Example|
-|-|-|-|
-| $ITCHIO_USERNAME | Your username on Itch.io, as in your personal page will be at `https://<username>.itch.io` |`username`
-| $ITCHIO_GAME | the name of your game on Itchio, as in your game will be available at `https://<username>.itch.io/<game>`  |`game`
-| $BUTLER_API_KEY | An [Itch.io API key](https://itch.io/user/settings/api-keys) is necessary for Butler so that Gitlab-ci can authenticate on Itch.io on your behalf. **Make that API key `Masked` to keep it secret** |`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`
+| Variable         | Description                                                                                                                                                                                         | Example                          |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| $ITCHIO_USERNAME | Your username on Itch.io, as in your personal page will be at `https://<username>.itch.io`                                                                                                          | `username`                       |
+| $ITCHIO_GAME     | the name of your game on Itchio, as in your game will be available at `https://<username>.itch.io/<game>`                                                                                           | `game`                           |
+| $BUTLER_API_KEY  | An [Itch.io API key](https://itch.io/user/settings/api-keys) is necessary for Butler so that Gitlab-ci can authenticate on Itch.io on your behalf. **Make that API key `Masked` to keep it secret** | `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa` |
