@@ -1,4 +1,4 @@
-FROM ubuntu:cosmic
+FROM ubuntu:latest
 LABEL author="artur@barichello.me,asheraryam@gmail.com"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
